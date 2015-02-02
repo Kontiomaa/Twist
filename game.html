@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="style/style.css" rel="stylesheet" type="text/css">
+		<title>Twist</title>
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<script src="js/turn.js"></script>
+		<script src="js/playerLocation.js"></script>
+		<script src="js/hand.js"></script>
+		<script src="js/board.js"></script>
+		<script>
+			var dieValue;
+			var maxPlayers;
+			var playerTurn;
+			var gameOver=0;
+		</script>
+	</head>
+	<body>
+		<div id="stats">
+			<script>
+			if(!maxPlayers)
+			{
+				maxPlayers=4;
+			}
+			for(var i=0;i<maxPlayers;i++)
+			{
+				document.write("<div id='row"+(i+1)+"' class='rows'><b id='p"+(i+1)+"'>Player "+(i+1)+"</b><b id='p"+(i+1)+"Dice' class='showDieValue'></b><input id='p"+(i+1)+"End' class='statsButtons' type='button' name='endTurn' value='End Turn' onclick='endTurn("+(i+1)+")'/><input id='p"+(i+1)+"Throw' class='statsButtons' type='button' name='throwDie' value='Throw!' onclick='throwDie("+(i+1)+")'/><input id='p"+(i+1)+"Card' class='statsButtons' type='button' name='useCard' value='Cards' onclick='showCards("+(i+1)+")'/></div>");
+			}
+			</script>
+		</div>
+		<div id="game">
+			<canvas id="board">
+				You need a browser that supports HTML5 canvas.
+			</canvas>
+		</div>
+		<script>
+			if(!playerTurn){
+				playerTurn=1;
+				checkTurn(playerTurn);
+				printCanvas();
+			}
+			function endTurn(playerTurn)
+			{
+				if(playerTurn==maxPlayers)
+				{
+					playerTurn=1;
+					for(var i=0;i<maxPlayers;i++){
+						document.getElementById("p"+(i+1)+"Dice").innerHTML="";
+					}
+				}
+				else
+				{
+					playerTurn++;
+				}
+				checkTurn(playerTurn);
+			}
+		</script>
+	</body>
+</html>

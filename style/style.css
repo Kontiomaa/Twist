@@ -1,0 +1,52 @@
+html, body
+{
+	height:95%;
+	width:99%;
+	min-width:290px;
+	min-height:800px;
+	/*background-color:#B87333;*/
+}
+#stats
+{
+	float:left;
+	width:100%;
+	min-width:1220px;
+	border-style:solid;
+}
+.showDieValue
+{
+	margin-left:10%;
+}
+#game
+{
+	margin-top:1%;
+	float:left;
+	width:100%;
+	min-width:1220px;
+	height:90%;
+	background-color:#E3DEC1;
+}
+#p1
+{
+	color:blue;
+}
+#p2
+{
+	color:green;
+}
+#p3
+{
+	color:darkorange;
+}
+#p4
+{
+	color:darkred;
+}
+.statsButtons
+{
+	float:right;
+}
+.rows
+{
+	min-height:30px;
+}
