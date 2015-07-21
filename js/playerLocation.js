@@ -12,6 +12,51 @@ var p3y/*=710*/;
 var p4x/*=90*/;
 var p4y/*=710*/;
 
+var firstPlace=0;
+var secondPlace=0;
+var thirdPlace=0;
+var fourthPlace=0;
+
+var p1fin=0;
+var p2fin=0;
+var p3fin=0;
+var p4fin=0;
+
+function checkPlacement(player){//when someone gets to the finish
+	if(firstPlace===0){
+		alert("Player "+player+" finished first!");
+		firstPlace=1;
+		endTurn(player);
+	}else if(secondPlace===0){
+		alert("Player "+player+" finished second!");
+		secondPlace=1;
+		endTurn(player);
+	}else if(thirdPlace===0){
+		alert("Player "+player+" finished third!");
+		thirdPlace=1;
+		endTurn(player);
+	}else if(fourthPlace===0){
+		alert("Player "+player+" finished fourth!");
+		fourthPlace=1;
+		//endTurn(player);
+	}
+
+	if(player===1){
+		p1fin=1;
+	}else if(player===2){
+		p2fin=1;
+	}else if(player===3){
+		p3fin=1;
+	}else if(player===4){
+		p4fin=1;
+	}
+	
+	if(fourthPlace){//last place, not fourth... Fix next!
+		alert("Game Over\n\nNew Game?");
+		endGame();
+	}
+}
+
 function getP1Location(){
 	getP1X();
 }
@@ -21,7 +66,7 @@ function setP1Location(newLoc){
 		p1Loc=83;
 	}
 	if(p1Loc===83){
-		alert("P1 Wins!");
+		checkPlacement(1);
 	}
 }
 function getP2Location(){
@@ -33,7 +78,7 @@ function setP2Location(newLoc){
 		p2Loc=83;
 	}
 	if(p2Loc===83){
-		alert("P2 Wins!");
+		checkPlacement(2);
 	}
 }
 function getP3Location(){
@@ -45,7 +90,7 @@ function setP3Location(newLoc){
 		p3Loc=83;
 	}
 	if(p3Loc===83){
-		alert("P3 Wins!");
+		checkPlacement(3);
 	}
 }
 function getP4Location(){
@@ -57,7 +102,7 @@ function setP4Location(newLoc){
 		p4Loc=83;
 	}
 	if(p4Loc===83){
-		alert("P4 Wins!");
+		checkPlacement(4);
 	}
 }
 

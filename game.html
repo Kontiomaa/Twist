@@ -19,12 +19,10 @@
 	<body>
 		<div id="stats">
 			<script>
-			if(!maxPlayers)
-			{
+			if(!maxPlayers){
 				maxPlayers=4;
 			}
-			for(var i=0;i<maxPlayers;i++)
-			{
+			for(var i=0;i<maxPlayers;i++){
 				document.write("<div id='row"+(i+1)+"' class='rows'><b id='p"+(i+1)+"'>Player "+(i+1)+"</b><b id='p"+(i+1)+"Dice' class='showDieValue'></b><input id='p"+(i+1)+"End' class='statsButtons' type='button' name='endTurn' value='End Turn' onclick='endTurn("+(i+1)+")'/><input id='p"+(i+1)+"Throw' class='statsButtons' type='button' name='throwDie' value='Throw!' onclick='throwDie("+(i+1)+")'/><input id='p"+(i+1)+"Card' class='statsButtons' type='button' name='useCard' value='Cards' onclick='showCards("+(i+1)+")'/></div>");
 			}
 			</script>
@@ -37,23 +35,8 @@
 		<script>
 			if(!playerTurn){
 				playerTurn=1;
-				checkTurn(playerTurn);
+				startTurn(playerTurn);
 				printCanvas();
-			}
-			function endTurn(playerTurn)
-			{
-				if(playerTurn==maxPlayers)
-				{
-					playerTurn=1;
-					for(var i=0;i<maxPlayers;i++){
-						document.getElementById("p"+(i+1)+"Dice").innerHTML="";
-					}
-				}
-				else
-				{
-					playerTurn++;
-				}
-				checkTurn(playerTurn);
 			}
 		</script>
 	</body>
